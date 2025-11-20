@@ -1,39 +1,48 @@
-🦁 Elene Pitskhelauri – Personal Portfolio/Website
-Welcome to my personal portfolio website — a space where design meets courage, and clean engineering meets creative vision.
-This site reflects who I am: focused, determined, and endlessly passionate about building meaningful digital experiences.
+<h1 align="center">🦁 Elene Pitskhelauri – Personal Portfolio</h1>
 
-🌊 About the Website
-This portfolio is fully hand-crafted using:
-HTML5
-CSS3
-JavaScript
-
-The visual theme is inspired by:
-glowing underwater ambience
-clean modern interfaces
-and my personal connection to strength and elegance
-
-Every section — from the animated background to the footer — is designed with intention and clarity.
-✨ Features
-🧭 Smooth layout with clean navigation
-🌊 Animated background hero section
-🦁 Custom lion emblem + personal branding
-📱 Fully responsive design (desktop + mobile)
-🔗 Direct links to Gmail, LinkedIn, Instagram, and GitHub
-🎨 Tailored visual identity matching my aesthetic
+<p align="center">
+A space where <b>design meets courage</b> and <b>clean engineering meets creative vision</b>.
+</p>
 
 
-💡 Purpose
+## 🌊 About the Website
+
+This portfolio is handcrafted using:
+
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+
+The visual theme reflects:
+
+- glowing underwater atmosphere  
+- modern minimalism  
+- strength, elegance, and personal identity  
+
+## ✨ Features
+
+- 🧭 Smooth layout & clean navigation  
+- 🌊 Animated background hero section  
+- 🦁 Custom lion emblem & personal branding  
+- 📱 Fully responsive (desktop + mobile)  
+- 🔗 Gmail, LinkedIn, Instagram & GitHub links  
+- 🎨 Tailored color palette + typography  
+
+## 💡 Purpose
+
 This portfolio represents:
-my creative personality
-my technical growth
-my journey in computer engineering
-my ability to design and build polished, modern interfaces
-It’s more than a website — it’s my digital home.
 
-📬 Contact
-Feel free to reach out or connect with me:
-Email: eleneficxelauri01@gmail.com
-LinkedIn: https://www.linkedin.com/in/elene-pitskhelauri-a287792bb/
-Instagram: link added in website
-GitHub: link added in website
+- my creativity  
+- my technical skills  
+- my journey in computer engineering  
+- my ability to design & build polished interfaces  
+
+It is more than a website — it is my digital home.
+
+## 📬 Contact
+- **Email:** eleneficxelauri01@gmail.com  
+- **LinkedIn:** https://www.linkedin.com/in/elene-pitskhelauri-a287792bb/  
+- **Instagram:** *(added on website)*  
+- **GitHub:** *(added on website)*  
+
+<p align="center"><b>🦁 Made with courage. Built with heart.</b></p>
