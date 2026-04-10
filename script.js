@@ -82,17 +82,20 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      VISIT COUNTER (AUTO)
   ========================= */
-  // if (!sessionStorage.getItem("visited")) {
-  //   fetch("http://localhost:3000/api/visit")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log("Visit counted:", data.visits);
-  //       sessionStorage.setItem("visited", "true");
-  //     })
-  //     .catch(() => {
-  //       console.log("Visit counter unavailable");
-  //     });
-  // }
+if (!sessionStorage.getItem("visited")) {
+  fetch(`${API_BASE_URL}/api/visit`)
+    .then((res) => {
+      if (!res.ok) throw new Error("Visit API failed");
+      return res.json();
+    })
+    .then((data) => {
+      console.log("Visit counted:", data.visits);
+      sessionStorage.setItem("visited", "true");
+    })
+    .catch((error) => {
+      console.log("Visit counter unavailable", error);
+    });
+}
 
   /* =========================
      SKILLS TABS
@@ -544,55 +547,60 @@ document.addEventListener("DOMContentLoaded", () => {
   //     }
   //   });
   // }
-
+const API_BASE_URL = "https://elenepitskhelauri.onrender.com";
 /* ========================= 
 ADMIN PANEL 
 ========================= */
+const adminBtn = document.getElementById("adminLoginBtn");
+const adminBox = document.getElementById("adminCounter");
 
-// const adminBtn = document.getElementById("adminLoginBtn");
-// const adminBox = document.getElementById("adminCounter");
+function showAdminPanel(adminKey) {
+  if (!adminBox) return;
 
-// function showAdminPanel() {
-//   if (!adminBox) return;
+  adminBox.style.display = "block";
+  adminBox.innerHTML = "Loading...";
 
-//   adminBox.style.display = "block";
+  fetch(`${API_BASE_URL}/api/admin/visits?key=${encodeURIComponent(adminKey)}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Unauthorized or server error");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      adminBox.innerHTML = `
+        👀 Visitors: <strong>${data.visits}</strong><br>
+        <button id="logoutBtn">Logout</button>
+      `;
 
-//   fetch(`http://localhost:3000/api/admin/visits?key=${ADMIN_KEY}`)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       adminBox.innerHTML = `
-//         👀 Visitors: <strong>${data.visits}</strong><br>
-//         <button id="logoutBtn">Logout</button>
-//       `;
+      document.getElementById("logoutBtn")?.addEventListener("click", () => {
+        sessionStorage.removeItem("adminKey");
+        adminBox.style.display = "none";
+        location.reload();
+      });
+    })
+    .catch(() => {
+      adminBox.innerHTML = "❌ Wrong key or cannot connect to server";
+      sessionStorage.removeItem("adminKey");
+    });
+}
 
-//       document.getElementById("logoutBtn")?.addEventListener("click", () => {
-//         localStorage.removeItem("isAdmin");
-//         location.reload();
-//       });
-//     })
-//     .catch(() => {
-//       adminBox.innerHTML = "❌ Cannot connect to server";
-//     });
-// }
+if (adminBtn && adminBox) {
+  const savedAdminKey = sessionStorage.getItem("adminKey");
 
-// if (adminBtn && adminBox) {
-//   const isAdmin = localStorage.getItem("isAdmin");
+  if (savedAdminKey) {
+    showAdminPanel(savedAdminKey);
+  }
 
-//   if (isAdmin === "true") {
-//     showAdminPanel();
-//   }
+  adminBtn.addEventListener("click", () => {
+    const input = prompt("Enter admin key:");
 
-//   adminBtn.addEventListener("click", () => {
-//     const input = prompt("Enter admin key:");
+    if (!input) return;
 
-//     if (input === ADMIN_KEY) {
-//       localStorage.setItem("isAdmin", "true");
-//       showAdminPanel();
-//     } else {
-//       alert("Wrong key");
-//     }
-//   });
-// }
+    sessionStorage.setItem("adminKey", input);
+    showAdminPanel(input);
+  });
+}
   /* =========================
      OWLS (LIGHT + DARK)
   ========================= */
