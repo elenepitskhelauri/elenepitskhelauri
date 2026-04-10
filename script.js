@@ -551,10 +551,8 @@ if (!sessionStorage.getItem("visited")) {
 /* ========================= 
 ADMIN PANEL 
 ========================= */
-const adminBtn = document.getElementById("adminLoginBtn");
-const adminBox = document.getElementById("adminCounter");
-
 function showAdminPanel(adminKey) {
+  const adminBox = document.getElementById("adminCounter");
   if (!adminBox) return;
 
   adminBox.style.display = "block";
@@ -585,22 +583,20 @@ function showAdminPanel(adminKey) {
     });
 }
 
-if (adminBtn && adminBox) {
-  const savedAdminKey = sessionStorage.getItem("adminKey");
+window.handleAdminClick = function handleAdminClick() {
+  const input = prompt("Enter admin key:");
+  if (!input) return;
 
+  sessionStorage.setItem("adminKey", input);
+  showAdminPanel(input);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedAdminKey = sessionStorage.getItem("adminKey");
   if (savedAdminKey) {
     showAdminPanel(savedAdminKey);
   }
-
-  adminBtn.addEventListener("click", () => {
-    const input = prompt("Enter admin key:");
-
-    if (!input) return;
-
-    sessionStorage.setItem("adminKey", input);
-    showAdminPanel(input);
-  });
-}
+});
   /* =========================
      OWLS (LIGHT + DARK)
   ========================= */
