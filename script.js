@@ -1,4 +1,4 @@
-// import { ADMIN_KEY } from './config.js';
+const API_BASE_URL = "https://elenepitskhelauri.onrender.com";
 /* =========================================
    IMAGE PREVIEW FUNCTION
 ========================================= */
@@ -547,7 +547,7 @@ if (!sessionStorage.getItem("visited")) {
   //     }
   //   });
   // }
-const API_BASE_URL = "https://elenepitskhelauri.onrender.com";
+
 /* ========================= 
 ADMIN PANEL 
 ========================= */
