@@ -4,19 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elene Pitskhelauri</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/icon.png"
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="img/icon.png">
 </head>
+<body>
 <!-- VANTA BACKGROUND -->
 <div id="bg"></div>
+
+<button id="themeToggle" class="theme-toggle">
+  <img id="themeIcon" src="img/moon.png" alt="theme icon">
+  <span id="themeText">Dark Mode</span>
+</button>
+
+
+<img src="branches/branches.png" alt="" class="floating-branch branch-left" />
 
 <!-- ALL WEBSITE CONTENT GOES INSIDE THIS -->
 <div class="content">
 
     <div id="home"></div>
 
+  <div class="menu-toggle" id="menuToggle">
+  ☰
+  </div>
     <!-- TOP HEADER CONTAINER (white/cream background) -->
-    <nav class="nav">
+    <nav class="nav" id="navMenu">
        <a href="#home">Home</a>
        <a href="#about">About</a>
        <a href="#skills">Skills</a>
@@ -33,11 +45,23 @@
         <h1 class="name"><i>Elene Pitskhelauri</i></h1>
         <a class="cv-btn" href="my_cv.pdf">Download CV</a>
     </div>
-
+<div class="search-container">
+  <div class="search-box">
+    <input
+      type="text"
+      id="siteSearch"
+      placeholder="Search skills, projects,robotics, Python..."
+      aria-label="Search website"
+      autocomplete="off"
+    />
+    <button id="searchBtn" type="button">Search</button>
+    <ul id="searchSuggestions" class="search-suggestions"></ul>
+  </div>
+</div>
   <!-- Header -->
   <header>
     <div class="intro">
-      <h1>Hello, I'm <span>Elene Pitskhelauri</span> 👋</h1>
+      <h1>Hello, I'm <span>Elene Pitskhelauri</span></h1>
       <p>
         I am a computer engineering student with knowledge and hands-on
         experience in software engineering and full-stack development (both
@@ -121,8 +145,8 @@ where I can apply my skills and keep learning.
       <li class="dropdown">
         Full-Stack Development
         <ul class="sub-skill-list">
-          <li>Frontend: HTML, CSS, JavaScript</li>
-          <li>Backend: Flask, .NET</li>
+          <li>Frontend: HTML, CSS, JavaScript, React</li>
+          <li>Backend: Flask, .NET , SQL , Node.js, Express,js</li>
         </ul>
       </li>
 
@@ -424,7 +448,7 @@ where I can apply my skills and keep learning.
 </div>
 
 </section>
-  <section id="achievements" class="achievement-box">
+  <section id="tsemi-stem-camp" class="achievement-box">
   <h2>Tsemi STEM Camp — 2023</h2>
 
  <div class="image-row">
@@ -465,7 +489,7 @@ where I can apply my skills and keep learning.
   </div>
 </section>
 <!-- All Healthy – All Happy (Step 1), Slovenia -->
-<section class="achievement-card" id="all-healthy-all-happy">
+<section class="achievement-card" id="all-healthy-slovenia">
   <h3>YE “All Healthy - All Happy” (Step 1)-Slovenia</h3>
 
   <p class="achievement-description">
@@ -527,7 +551,7 @@ where I can apply my skills and keep learning.
 </section>
 
 <!-- All Healthy – All Happy (Step 2), Norway -->
-<section class="achievement-card" id="all-healthy-all-happy">
+<section class="achievement-card" id="all-healthy-norway">
   <h3>YE “All Healthy - All Happy” (Step 2) - Norway</h3>
 
   <p class="achievement-description">
@@ -654,8 +678,8 @@ where I can apply my skills and keep learning.
     <div class="certificate">
       <h3>National Geographic Learning Webinar</h3>
       <p>National Geographic Learning — 2022</p>
-      <a href="certificates/53134642-5D9D-413E-A77B-BB3926A0A8F1.JPG" target="_blank">
-    <img src="certificates/53134642-5D9D-413E-A77B-BB3926A0A8F1.JPG" alt="National Geographic Certificate" class="cert-thumb" />
+      <a href="certificates/nationalgeographic.JPG" target="_blank">
+    <img src="certificates/nationalgeographic.JPG" alt="National Geographic Certificate" class="cert-thumb" />
   </a>
       <p class="cert-description">
         Completed the National Geographic Learning webinar on delivering effective reading lessons, hosted by Alex Warren.
@@ -928,6 +952,42 @@ where I can apply my skills and keep learning.
   </p>
 </div>
 
+  <!-- Certificate SQL 1 -->
+<div class="certificate">
+  <h3>Introduction to SQL and Relational Databases</h3>
+  <p>IBM Cognitive Class — 2025</p>
+  <a href="certificates/sql1.jpg" target="_blank">
+    <img src="certificates/sql1.jpg" alt="SQL Certificate 1" class="cert-thumb" />
+  </a>
+  <p class="cert-description">
+    Learned core SQL concepts including querying, filtering, joins, and relational databases.
+  </p>
+  <p>
+    Course link:
+    <a href="certificates/Introduction to SQL.pdf - Shortcut.lnk" target="_blank">
+      Introduction to SQL
+    </a>
+  </p>
+</div>
+
+  <!-- Certificate SQL 2 -->
+  <div class="certificate">
+    <h3>Intermediate SQL</h3>
+    <p>IBM / Other Platform — 2025</p>
+    <a href="certificates/sql2.png" target="_blank">
+      <img src="certificates/sql2.png" alt="SQL Certificate 2" class="cert-thumb" />
+    </a>
+    <p class="cert-description">
+      Built on SQL with advanced queries, subqueries, aggregations, and data analysis techniques for real-world datasets.
+    </p>
+    <p>
+    Course link:
+    <a href="certificates/Intermediate SQL - Copy.pdf" target="_blank">
+      Intermediate SQl
+    </a>
+  </p>
+  </div>
+
 </section>
 <section id="experience">
     <h2>Experience</h2>
@@ -1074,87 +1134,52 @@ where I can apply my skills and keep learning.
 </p>
 </section>
 
+<div class="contact-form-wrapper">
+  <h3>Send Me a Message</h3>
+
+  <form action="https://formspree.io/f/mojpobwr" method="POST" class="contact-form">
+
+    <input
+      type="text"
+      name="name"
+      placeholder="Your name"
+      required
+    />
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Your email"
+      required
+    />
+
+    <textarea
+      name="message"
+      rows="6"
+      placeholder="Write your message here..."
+      required
+    ></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+</div>
+
   <footer>
     <img src="img/logo.png" class="footer-logo" alt="Elene logo">
     <p>© 2025 Elene Pitskhelauri — All Rights Reserved.</p>
   </footer>
 
-<script>
-function openImage(src) {
-  window.open(src, "_blank");
-}
-</script>
-
-<script>
-  const buttons = document.querySelectorAll(".tab-button");
-  const contents = document.querySelectorAll(".skills-content");
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      button.classList.add("active");
-
-      contents.forEach(content => {
-        content.classList.remove("active");
-        if (content.id === button.dataset.target) {
-          content.classList.add("active");
-        }
-      });
-    });
-  });
-</script>
-<script>
-// SWITCH TABS
-document.querySelectorAll('.tab-button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.skills-content').forEach(c => c.classList.remove('active'));
-
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.target).classList.add('active');
-  });
-});
-
-// DROPDOWNS FOR SKILLS
-document.querySelectorAll('.dropdown').forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('open');
-    let submenu = item.querySelector('.sub-skill-list');
-    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-  });
-});
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 
-<script>
-VANTA.FOG({
-  el: "#bg",
 
-  // ENABLE MOUSE MOVEMENT
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
+<!-- <div id="adminCounter" style="display:none; position:fixed; bottom:70px; right:20px; background:white; padding:12px; border-radius:10px;"></div>
+<button id="adminLoginBtn" style="position:fixed; bottom:20px; right:20px; z-index:999;">🔐 Admin </button> -->
 
-  // CORRECT PARAMETERS FOR MOUSE MOVEMENT
-  mouseEase: 0.1,
-  mouseInfluence: 0.2,
+<img id="owlLight" src="img/light.gif" alt="Light owl" class="theme-owl" />
+<img id="owlDark" src="img/dark.gif" alt="Dark owl" class="theme-owl" />
 
-  highlightColor: 0xb0b0b0,
-  midtoneColor: 0x3eeb63,
-  lowlightColor: 0x13a618,
-  baseColor: 0xe0e0e0,
-
-  blurFactor: 0.60,
-  zoom: 1.0,
-  speed: 5.0,
-
-  minHeight: 200.00,
-  minWidth: 200.00,
-});
-</script>
-
-
-
+<script type="module" src="script.js"></script>
 </body>
 </html>

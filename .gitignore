@@ -1,0 +1,14 @@
+# Hide environment variables (VERY IMPORTANT)
+.env
+
+# Node modules (big + unnecessary)
+node_modules/
+
+# Saved messages (optional privacy)
+messages.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+counter.json

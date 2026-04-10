@@ -1,0 +1,1 @@
+export const ADMIN_KEY = "232323";
